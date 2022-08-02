@@ -1,0 +1,15 @@
+server:
+  port: 8021
+#应用名称 （nacos会将该名称当做服务名称）
+spring:
+  application:
+    name: stock-service
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      discovery:
+        username: nacos
+        password: nacos
+        namespace: public
+#        group: stockup
+#        ephemeral: false #是否是临时实例：当服务宕机也不会从服务器删除

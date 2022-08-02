@@ -1,0 +1,17 @@
+spring:
+  application:
+    #会根据服务名拉取dataid对应的配置文件。如果dataid跟服务名不一致 就需要手动指定dataid
+    #跟服务名相同的dataid的配置文件，称之问默认的配置文件
+    #除了默认的配置文件，其他配置文件必须写上后缀
+    name: con.yunshi.order.redis
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      username: nacos
+      password: nacos
+      config:
+        #Nacos客户端 默认时properties的文件扩展名
+        #一旦修改成了非properties,则必须配置file-extension进行配置
+        file-extension: yaml
+    #      config:
+#        namespace: public

@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: con.yunshi.order.redis
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      username: nacos
+      password: nacos
+      config:
+        #Nacos客户端 默认时properties的文件扩展名
+        #一旦修改成了非properties,则必须配置file-extension进行配置
+        file-extension: yaml
+    #      config:
+#        namespace: public

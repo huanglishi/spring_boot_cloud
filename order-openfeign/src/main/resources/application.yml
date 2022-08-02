@@ -1,0 +1,30 @@
+server:
+  port: 8040
+#应用名称 （nacos会将该名称当做服务名称）
+spring:
+  application:
+    name: order-service
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      discovery:
+        username: nacos
+        password: nacos
+        namespace: public
+#springboot日志级别info ,修改feign日志基本debug
+logging:
+  level:
+    com.yunshi.order.feign: debug
+#feign日志局部配置
+feign:
+  client:
+    config:
+      product-service:
+        loggerLevel: BASIC
+        contract: feign.Contract.Default #设置为默认契约 （还原成原生注解）
+        #链接超时时间，默认2秒
+        connectTimeout: 5000
+        #请求处理超时时间 默认5秒
+        readTimeout: 6000
+        requestInterceptors[0]:
+          com.yunshi.order.intercptor.feign.CustomFeignInterceptor
